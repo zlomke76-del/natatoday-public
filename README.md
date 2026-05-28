@@ -1,56 +1,228 @@
-# NATA Today — Public Demo Repository
+# NATA Today
 
-NATA Today is a dealer-first recruiting and candidate-readiness platform for automotive hiring.
+Dealer-first recruiting infrastructure for modern automotive hiring.
 
-This public repository contains the safe public-facing website and demo surfaces only. It is designed for brand review, marketing collaboration, and lightweight deployment without exposing the private operating system, production database logic, candidate records, recruiter workflows, dealer workspaces, API integrations, or secrets.
+NATA Today is a workforce orchestration and candidate-readiness platform designed for automotive dealerships, recruiter networks, and hiring organizations operating under real-world staffing pressure.
 
-## Included
+This repository contains the **public-facing experience layer only** — including the marketing site, public demos, onboarding surfaces, and static brand assets.
 
-- Public homepage
-- Dealer demo page
-- Candidate demo page
-- Careers landing page
-- Pricing redirect/page placeholder
-- Privacy policy
-- Terms page
-- Public image and sound assets used by the demo experience
+The production operating system, protected workflows, infrastructure services, and runtime orchestration layers are intentionally excluded from this repository.
 
-## Not included
+---
 
-The production repository contains private operating logic that is intentionally excluded from this public version, including:
+# Public Repository Scope
 
-- Supabase service-role access and schema logic
-- Candidate screening and matching internals
-- Recruiter dashboards and authorization flows
-- Dealer dashboards and protected workspaces
-- Email/SMS/voice/video/payment integrations
-- Webhooks, scheduled jobs, admin routes, and operational playbooks
-- Any production environment variables or secrets
+This repository is intended for:
 
-## Getting started
+* Public deployment demos
+* Brand and design review
+* Partner evaluation
+* UI/UX collaboration
+* Marketing and recruiting previews
+* Lightweight frontend experimentation
+
+This is **not** the private production platform.
+
+---
+
+# Included In This Repository
+
+## Public Website
+
+* Landing pages
+* Product positioning pages
+* Dealer overview pages
+* Candidate overview pages
+* Careers and informational pages
+* Demo interaction surfaces
+* Public navigation and branding
+
+## Frontend Experience Components
+
+* UI components
+* Styling system
+* Animations
+* Public assets
+* Audio/video demo assets
+* Mobile-responsive layouts
+
+## Deployment Scaffolding
+
+* Next.js application structure
+* Public environment templates
+* Build configuration
+* Example deployment setup
+
+---
+
+# Excluded From This Repository
+
+The following systems are intentionally removed or protected:
+
+## Protected Infrastructure
+
+* Production databases
+* Supabase service-role configuration
+* Internal schemas and migrations
+* Production storage buckets
+* Operational admin tooling
+
+## Private Runtime Systems
+
+* Candidate scoring logic
+* Recruiter orchestration
+* Dealer workflow management
+* Internal approval systems
+* Matching and ranking engines
+* Automation pipelines
+* State synchronization systems
+
+## Sensitive Integrations
+
+* Stripe
+* Twilio
+* Resend
+* OpenAI
+* Daily
+* Webhooks
+* Scheduled jobs
+* Background workers
+* Internal APIs
+
+## Protected Data
+
+* Real candidate records
+* Dealer operational data
+* Internal communications
+* Production environment variables
+* Access credentials
+* Service secrets
+
+---
+
+# Technology Stack
+
+NATA Today is built using:
+
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* Vercel deployment infrastructure
+
+The production platform additionally utilizes protected infrastructure and operational services that are not included in this repository.
+
+---
+
+# Local Development
+
+## Install dependencies
 
 ```bash
 npm install
+```
+
+## Start development server
+
+```bash
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open:
 
-## Build
+```text
+http://localhost:3000
+```
+
+---
+
+# Production Build
 
 ```bash
 npm run build
 npm start
 ```
 
-## Environment
+---
 
-This public build does not require private credentials. Use `.env.example` as the starting point for local development.
+# Environment Variables
 
-## Security posture
+This public repository does not require production credentials.
 
-Do not add production secrets, service-role keys, real candidate data, protected dealer data, or private API routes to this repository. Keep the full operating system in the private repository.
+Use:
 
-## License
+```text
+.env.example
+```
 
-Copyright © NATA Today. All rights reserved unless otherwise stated in `LICENSE`.
+as the template for local development.
+
+Never commit:
+
+* service-role keys
+* production API tokens
+* dealer data
+* candidate data
+* operational secrets
+
+---
+
+# Security Notice
+
+This repository is intentionally sanitized for public release.
+
+Do not use this repository as the authoritative production source.
+
+All protected infrastructure, operational orchestration, and runtime systems should remain isolated within private repositories and controlled deployment environments.
+
+If you discover a security issue or exposed credential, please report it responsibly.
+
+---
+
+# Architectural Positioning
+
+NATA Today is designed around a dealer-first operational model focused on:
+
+* candidate readiness
+* recruiter coordination
+* workflow visibility
+* hiring continuity
+* operational speed
+* scalable dealership staffing infrastructure
+
+The broader production platform includes protected orchestration systems not represented in this public repository.
+
+---
+
+# Deployment
+
+Recommended deployment platforms:
+
+* Vercel
+* Netlify
+* Docker-based environments
+
+Example:
+
+```bash
+vercel deploy
+```
+
+---
+
+# License
+
+Copyright © NATA Today.
+
+All rights reserved unless otherwise specified in the accompanying `LICENSE` file.
+
+This repository may not be used to recreate, clone, reverse engineer, or commercially reproduce protected operational systems, workflows, or infrastructure contained within the private production platform.
+
+---
+
+# Contact
+
+For partnerships, enterprise inquiries, or platform access:
+
+* Website: https://natatoday.ai
+* Email: [contact@natatoday.ai](mailto:contact@natatoday.ai)
