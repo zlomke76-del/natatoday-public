@@ -1,0 +1,101 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+
+export default function Nav() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const closeMenu = () => setOpen(false);
+
+  const isCandidateFlow =
+    pathname?.startsWith("/careers") || pathname?.startsWith("/candidate");
+
+  const isDealerWorkspace = pathname?.startsWith("/dealer/");
+
+  // 🔒 Internal system routes (no navigation allowed)
+  const isInternal =
+    pathname?.startsWith("/recruiter") ||
+    pathname?.startsWith("/admin") ||
+    pathname?.startsWith("/ops");
+
+  const brandHref = isCandidateFlow
+    ? "/careers"
+    : isDealerWorkspace
+    ? pathname || "/"
+    : "/";
+
+  return (
+    <header className="nav">
+      <div className="nav-inner">
+        <Link
+          href={brandHref}
+          className="brand"
+          aria-label={
+            isCandidateFlow ? "NATA Today careers" : "NATA Today home"
+          }
+          onClick={closeMenu}
+        >
+          <span className="brand-logo-wrap" aria-hidden="true">
+            <Image
+              src="/images/nata_logo_01.png"
+              alt=""
+              width={132}
+              height={54}
+              priority
+              className="brand-logo"
+            />
+          </span>
+          <span className="brand-text">NATA Today</span>
+        </Link>
+
+        {/* 🚫 Hide ALL navigation for internal system */}
+        {!isCandidateFlow && !isDealerWorkspace && !isInternal ? (
+          <>
+            <button
+              className="nav-menu-button"
+              type="button"
+              aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={open}
+              aria-controls="primary-navigation"
+              onClick={() => setOpen((current) => !current)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+
+            <nav
+              id="primary-navigation"
+              className={open ? "nav-links nav-links-open" : "nav-links"}
+              aria-label="Primary navigation"
+            >
+              <Link href="/#system" onClick={closeMenu}>
+                System
+              </Link>
+              <Link href="/#outcomes" onClick={closeMenu}>
+                Outcomes
+              </Link>
+              <Link href="/dealer-demo" onClick={closeMenu}>
+                Dealer Demo
+              </Link>
+              <Link href="/careers" onClick={closeMenu}>
+                Careers
+              </Link>
+              <Link
+                className="nav-cta"
+                href="/candidate-demo"
+                onClick={closeMenu}
+              >
+                View Candidate
+              </Link>
+            </nav>
+          </>
+        ) : null}
+      </div>
+    </header>
+  );
+}
